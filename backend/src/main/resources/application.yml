@@ -1,0 +1,49 @@
+server:
+  port: ${SERVER_PORT:3000}
+
+debug: false
+
+spring:
+  application:
+    name: inventory-backend
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/inventory_db?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    time-zone: Asia/Shanghai
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+        jdbc:
+          time_zone: Asia/Shanghai
+  servlet:
+    multipart:
+      max-file-size: 3MB
+      max-request-size: 4MB
+
+springdoc:
+  swagger-ui:
+    enabled: false
+  api-docs:
+    path: /v3/api-docs
+
+app:
+  jwt-secret: ${JWT_SECRET:inventory-system-development-secret-2026}
+  upload-dir: ${UPLOAD_DIR:uploads}
+  ai:
+    zhipu-api-key: ${ZHIPU_API_KEY:}
+    zhipu-endpoint: ${ZHIPU_ENDPOINT:https://open.bigmodel.cn/api/paas/v4/chat/completions}
+    zhipu-model: ${ZHIPU_MODEL:glm-4-flash}
+
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: WARN
+    org.springframework.web: INFO

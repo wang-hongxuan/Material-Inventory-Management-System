@@ -1,0 +1,10 @@
+{
+  "name": "inventory-springboot-backend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "set DEBUG=&& mvn -DskipTests package && set DEBUG=&& java -jar target/inventory-backend-1.0.0.jar",
+    "build": "set DEBUG=&& mvn -DskipTests clean package",
+    "start": "set DEBUG=&& java -jar target/inventory-backend-1.0.0.jar"
+  }
+}
