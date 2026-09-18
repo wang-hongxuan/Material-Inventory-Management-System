@@ -90,7 +90,7 @@ npm run dev
 3. 设置本次终端的数据库密码。
 
    ```powershell
-   $env:DB_PASSWORD="@Xuanxuan13579"
+   $env:DB_PASSWORD=" "
    ```
 
    如需使用 AI 助手，确认 `backend/.env.local` 已填写：
